@@ -1,12 +1,27 @@
+import { useState } from "react";
+import { foes } from "../constants";
+
 export const BattleSelectionMenu = () => {
+  const [selectedFoeId, setFoeId] = useState(null);
+
   return (
     <>
       <section>
-        <button>Free for all Battles</button>
-        <button>Multiplication/Division Battles</button>
-        <button>Sum/Substraction Battles</button>
+        <h1>Select your opponent!</h1>
+        {foes.map((foe) => (
+          <button
+            key={foe.id}
+            onClick={() => setFoeId(foe.id)}
+            disabled={selectedFoeId !== foe.id}
+          >
+            {foe.name}
+          </button>
+        ))}
       </section>
-      <section>Categories won : 0</section>
+      <section>Foe Vanquished : 0/4</section>
+      <section>
+        <button>Start Combat!</button>
+      </section>
     </>
   );
 };

@@ -5,14 +5,12 @@ export const MainMenu = ({ setScene }) => {
     <>
       <h1>Math Battle Game</h1>
       <section>
-        <button onClick={() => setScene("BattleSelectionMenu")}>
-          Start Game
-        </button>
+        <button onClick={() => setScene("LoreIntro")}>Start Game</button>
       </section>
     </>
   );
 };
 
 MainMenu.propTypes = {
-  setScene: PropTypes.string,
+  setScene: PropTypes.func,
 };
